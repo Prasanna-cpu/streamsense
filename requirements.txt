@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+python-multipart
+python-dotenv
+python-jose[cryptography]
+gunicorn
+sqlmodel
+pydantic
+sqlalchemy
+timescaledb
