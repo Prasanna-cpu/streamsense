@@ -8,3 +8,5 @@ sqlmodel
 pydantic
 sqlalchemy
 timescaledb
+requests
+python-multipart
