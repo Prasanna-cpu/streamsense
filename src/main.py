@@ -1,13 +1,24 @@
 from fastapi import FastAPI
 import uvicorn
 from dotenv import load_dotenv
+from api.events.routing import router as event_router
 import os
+from contextlib import asynccontextmanager
+from api.db.session import init_db
 
 load_dotenv()
 
 port = os.environ["PORT"]
 
-app = FastAPI()
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    init_db()
+    yield
+
+app = FastAPI(lifespan=lifespan)
+app.include_router(event_router, prefix="/api/events", tags=["events"])
+
+
 
 
 @app.get("/")

@@ -10,3 +10,6 @@ sqlalchemy
 timescaledb
 requests
 python-multipart
+ipykernel
+python-decouple
+psycopg2-binary
